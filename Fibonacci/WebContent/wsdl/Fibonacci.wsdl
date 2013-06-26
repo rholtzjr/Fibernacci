@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://fibonacci.holtz.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://fibonacci.holtz.org" xmlns:intf="http://fibonacci.holtz.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://fibonacci.holtz.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getSequence">
+    <complexType>
+     <sequence>
+      <element name="count" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSequenceResponse">
+    <complexType>
+     <sequence>
+      <element name="getSequenceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="bigFib">
+    <complexType>
+     <sequence>
+      <element name="n1" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="bigFibResponse">
+    <complexType>
+     <sequence>
+      <element name="bigFibReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="fib">
+    <complexType>
+     <sequence>
+      <element name="n" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="fibResponse">
+    <complexType>
+     <sequence>
+      <element name="fibReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBigSequence">
+    <complexType>
+     <sequence>
+      <element name="count" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBigSequenceResponse">
+    <complexType>
+     <sequence>
+      <element name="getBigSequenceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getBigSequenceResponse">
+
+      <wsdl:part element="impl:getBigSequenceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="fibResponse">
+
+      <wsdl:part element="impl:fibResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bigFibResponse">
+
+      <wsdl:part element="impl:bigFibResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bigFibRequest">
+
+      <wsdl:part element="impl:bigFib" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="fibRequest">
+
+      <wsdl:part element="impl:fib" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSequenceResponse">
+
+      <wsdl:part element="impl:getSequenceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBigSequenceRequest">
+
+      <wsdl:part element="impl:getBigSequence" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSequenceRequest">
+
+      <wsdl:part element="impl:getSequence" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Fibonacci">
+
+      <wsdl:operation name="getSequence">
+
+         <wsdl:input message="impl:getSequenceRequest" name="getSequenceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSequenceResponse" name="getSequenceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="bigFib">
+
+         <wsdl:input message="impl:bigFibRequest" name="bigFibRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:bigFibResponse" name="bigFibResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="fib">
+
+         <wsdl:input message="impl:fibRequest" name="fibRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:fibResponse" name="fibResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBigSequence">
+
+         <wsdl:input message="impl:getBigSequenceRequest" name="getBigSequenceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBigSequenceResponse" name="getBigSequenceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FibonacciSoapBinding" type="impl:Fibonacci">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getSequence">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSequenceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSequenceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="bigFib">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="bigFibRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="bigFibResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="fib">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="fibRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="fibResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBigSequence">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBigSequenceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBigSequenceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FibonacciService">
+
+      <wsdl:port binding="impl:FibonacciSoapBinding" name="Fibonacci">
+
+         <wsdlsoap:address location="http://localhost:8080/Fibonacci/services/Fibonacci"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
