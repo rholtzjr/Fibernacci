@@ -1,6 +1,6 @@
 Fibernacci Service
 ==========
-<pre>
+
 This project is a service based implementation of the Fibonacci suquence generator.  This application will accept a 
 SOAP-based reuqest and provide a SOAP-based response.
 
@@ -12,4 +12,4 @@ i.e.
 
 getSequence(int sequence_num) - int based
 getBigSequence(long sequence_num) BigInteger based
-</pre>
+
