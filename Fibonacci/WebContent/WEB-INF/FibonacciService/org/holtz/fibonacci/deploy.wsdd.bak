@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FibonacciService WSDL service -->
+
+  <service name="Fibonacci" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://fibonacci.holtz.org"/>
+      <parameter name="wsdlServiceElement" value="FibonacciService"/>
+      <parameter name="schemaQualified" value="http://fibonacci.holtz.org"/>
+      <parameter name="wsdlServicePort" value="Fibonacci"/>
+      <parameter name="className" value="org.holtz.fibonacci.FibonacciSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Fibonacci"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getSequence" qname="operNS:getSequence" xmlns:operNS="http://fibonacci.holtz.org" returnQName="retNS:getSequenceReturn" xmlns:retNS="http://fibonacci.holtz.org" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:count" xmlns:pns="http://fibonacci.holtz.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="bigFib" qname="operNS:bigFib" xmlns:operNS="http://fibonacci.holtz.org" returnQName="retNS:bigFibReturn" xmlns:retNS="http://fibonacci.holtz.org" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:n1" xmlns:pns="http://fibonacci.holtz.org" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="fib" qname="operNS:fib" xmlns:operNS="http://fibonacci.holtz.org" returnQName="retNS:fibReturn" xmlns:retNS="http://fibonacci.holtz.org" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:n" xmlns:pns="http://fibonacci.holtz.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBigSequence" qname="operNS:getBigSequence" xmlns:operNS="http://fibonacci.holtz.org" returnQName="retNS:getBigSequenceReturn" xmlns:retNS="http://fibonacci.holtz.org" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:count" xmlns:pns="http://fibonacci.holtz.org" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="bigFib getSequence getBigSequence fib"/>
+
+  </service>
+</deployment>
