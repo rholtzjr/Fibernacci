@@ -11,5 +11,6 @@ The only limitation is the input parameter.
 i.e. 
 
 getSequence(int sequence_num) - int based
+
 getBigSequence(long sequence_num) BigInteger based
 
